@@ -1,4 +1,4 @@
-import cv2
+mport cv2
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -8,8 +8,8 @@ import seaborn as sns
 from tensorflow.keras.models import load_model
 
 # Dataset Path
-train_dir = r"C:\Users\SATISH\OneDrive\Desktop\SatishPro\Face Mask Dataset\Train"
-test_dir = r"C:\Users\SATISH\OneDrive\Desktop\SatishPro\Face Mask Dataset\Test"
+train_dir = r"C:\Users\BINDU\Desktop\face mask detection\Face Mask Dataset\Train"
+test_dir = r"C:\Users\BINDU\Desktop\face mask detection\Face Mask Dataset\Test"
 
 # Data Augmentation and Preprocessing
 datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.1, shear_range=0.1, horizontal_flip=True)
@@ -40,10 +40,10 @@ loss, accuracy = model.evaluate(test_generator)
 print(f"Test Accuracy: {accuracy * 100:.2f}%")
 
 # Save the Model
-model.save(r"C:\Users\SATISH\OneDrive\Desktop\SatishPro\face_mask_detector.h5")
+model.save(r"C:\Users\BINDU\Desktop\face mask detection\face_mask_detector.h5")
 
 # Load the trained model
-model_path = r"C:\Users\SATISH\OneDrive\Desktop\SatishPro\face_mask_detector.h5"
+model_path = r"C:\Users\BINDU\Desktop\face mask detection\face_mask_detector.h5"
 model = tf.keras.models.load_model(model_path)
 
 # Load OpenCV's pre-trained Haar cascade for face detection
@@ -90,3 +90,7 @@ while True:
 # Release webcam and close OpenCV window
 cap.release()
 cv2.destroyAllWindows()
+
+
+
+        
